@@ -1,7 +1,7 @@
-// TradingViewWidget.jsx
 import React, { useEffect, useRef, memo } from 'react';
+import BitCoinInfo from '../BitcoinInfo/BitcoinInfo';
 
-const Chart = () => {
+const Chart = ({ coinPrice }) => {
   const containerRef = useRef();
 
   useEffect(() => {
@@ -37,6 +37,9 @@ const Chart = () => {
 
   return (
     <section className='p-4 bg-white rounded-sm md:w-[60%] mx-[5%] mt-4'>
+      <div>
+        <BitCoinInfo coinPrice={coinPrice} />
+      </div>
       <div className='tradingview-widget-container' ref={containerRef}>
         <div className='tradingview-widget-container__widget'></div>
         <div className='tradingview-widget-copyright'>

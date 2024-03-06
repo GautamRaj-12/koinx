@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import AboutBitcoin from "./components/AboutBitcoin/AboutBitcoin";
-import BitCoinInfo from "./components/BitcoinInfo/BitcoinInfo";
-import Chart from "./components/Chart/Chart";
-import Navbar from "./components/Navbar/Navbar";
-import Team from "./components/Team/Team";
-import Tokenomics from "./components/Tokenomics/Tokenomics";
-import Trending from "./components/Trending/Trending";
-import GetStarted from "./components/GetStarted/GetStarted";
-import YouMayLike from "./components/YouMayLike/YouMayLike";
+import { useEffect, useState } from 'react';
+import './App.css';
+import AboutBitcoin from './components/AboutBitcoin/AboutBitcoin';
+import BitCoinInfo from './components/BitcoinInfo/BitcoinInfo';
+import Chart from './components/Chart/Chart';
+import Navbar from './components/Navbar/Navbar';
+import Team from './components/Team/Team';
+import Tokenomics from './components/Tokenomics/Tokenomics';
+import Trending from './components/Trending/Trending';
+import GetStarted from './components/GetStarted/GetStarted';
+import YouMayLike from './components/YouMayLike/YouMayLike';
 
 function App() {
   const [coinPrice, setCoinPrice] = useState(null);
@@ -19,19 +19,19 @@ function App() {
       try {
         const response = await fetch(
           import.meta.env.VITE_API_URL +
-            "/simple/price/?ids=bitcoin&vs_currencies=inr%2Cusd&include_24hr_change=true"
+            '/simple/price/?ids=bitcoin&vs_currencies=inr%2Cusd&include_24hr_change=true&precision=2'
         );
         const data = await response.json();
-
+        console.log(data);
         setCoinPrice(data);
       } catch (error) {
-        console.error("Error fetching Bitcoin price:", error);
+        console.error('Error fetching Bitcoin price:', error);
       }
     };
 
     const trendingCoins = async () => {
       const response = await fetch(
-        import.meta.env.VITE_API_URL + "/search/trending"
+        import.meta.env.VITE_API_URL + '/search/trending'
       );
       const data = await response.json();
 
@@ -62,8 +62,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <BitCoinInfo coinPrice={coinPrice} />
-      <Chart />
+      <Chart coinPrice={coinPrice} />
       <AboutBitcoin />
       <Tokenomics />
       <Team />
