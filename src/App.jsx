@@ -8,10 +8,12 @@ import Team from "./components/Team/Team";
 import Tokenomics from "./components/Tokenomics/Tokenomics";
 import Trending from "./components/Trending/Trending";
 import GetStarted from "./components/GetStarted/GetStarted";
+import YouMayLike from "./components/YouMayLike/YouMayLike";
 
 function App() {
   const [coinPrice, setCoinPrice] = useState(null);
   const [trendingCoin, setTrendingCoin] = useState([]);
+  const [allTrendingCoin, setAllTrendingCoin] = useState([]);
   useEffect(() => {
     const coinPriceInfo = async () => {
       try {
@@ -34,15 +36,24 @@ function App() {
       const data = await response.json();
 
       const firstThreeTrendingCoins = data.coins.slice(0, 3).map((coin) => ({
-        id: coin.item.id,
         name: coin.item.name,
         symbol: coin.item.symbol,
         usd: coin.item.data.price_change_percentage_24h.usd,
         thumb: coin.item.thumb,
       }));
-      console.log(firstThreeTrendingCoins);
 
       setTrendingCoin(firstThreeTrendingCoins);
+
+      const allTrendingCoins = data.coins.map((coin) => ({
+        symbol: coin.item.symbol,
+        price: coin.item.data.price,
+        usd: coin.item.data.price_change_percentage_24h.usd,
+        thumb: coin.item.thumb,
+        sparkline: coin.item.data.sparkline,
+      }));
+
+      setAllTrendingCoin(allTrendingCoins);
+      console.log(allTrendingCoin);
     };
 
     coinPriceInfo();
@@ -56,6 +67,7 @@ function App() {
       <AboutBitcoin />
       <Tokenomics />
       <Team />
+      <YouMayLike allTrendingCoin={allTrendingCoin} />
       <GetStarted />
       <Trending trendingCoin={trendingCoin} />
     </>
