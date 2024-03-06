@@ -50,12 +50,12 @@ function App() {
   return (
     <>
       <Navbar />
-      <BitCoinInfo coinPrice={coinPrice} />S
-      <Trending />
+      <BitCoinInfo coinPrice={coinPrice} />
       <Chart />
       <AboutBitcoin />
       <Tokenomics />
       <Team />
+      <Trending trendingCoin={trendingCoin} />
     </>
   );
 }
