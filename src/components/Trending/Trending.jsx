@@ -1,7 +1,7 @@
 const Trending = ({ trendingCoin }) => {
   return (
     <>
-      <section className="trending p-4 bg-white rounded-sm md:w-[60%] mx-[5%] mt-4">
+      <section className="trending p-4 bg-white rounded-sm md:w-[40%] mx-[5%] mt-4">
         <h2 className="mb-4 text-2xl font-semibold">
           Trending Coins <span>(24h)</span>
         </h2>

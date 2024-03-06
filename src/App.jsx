@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Team from "./components/Team/Team";
 import Tokenomics from "./components/Tokenomics/Tokenomics";
 import Trending from "./components/Trending/Trending";
+import GetStarted from "./components/GetStarted/GetStarted";
 
 function App() {
   const [coinPrice, setCoinPrice] = useState(null);
@@ -55,6 +56,7 @@ function App() {
       <AboutBitcoin />
       <Tokenomics />
       <Team />
+      <GetStarted />
       <Trending trendingCoin={trendingCoin} />
     </>
   );
