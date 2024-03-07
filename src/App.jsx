@@ -9,6 +9,7 @@ import Tokenomics from './components/Tokenomics/Tokenomics';
 import Trending from './components/Trending/Trending';
 import GetStarted from './components/GetStarted/GetStarted';
 import YouMayLike from './components/YouMayLike/YouMayLike';
+import Sentiment from './components/Sentiment/Sentiment';
 
 function App() {
   const [coinPrice, setCoinPrice] = useState(null);
@@ -63,6 +64,7 @@ function App() {
     <>
       <Navbar />
       <Chart coinPrice={coinPrice} />
+      <Sentiment />
       <AboutBitcoin />
       <Tokenomics />
       <Team />
