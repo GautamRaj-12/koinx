@@ -65,7 +65,7 @@ const Sentiment = () => {
             <div className='col-span-9'>
               <div className='flex items-center justify-start gap-3 mb-2 text-base'>
                 <p className='font-semibold text-slate-500'>Buy</p>
-                <div class='rounded-full h-2.5 w-[60%] '>
+                <div className='rounded-full h-2.5 w-[60%] '>
                   <div className='bg-green-400 h-2.5 rounded-md w-[76%] relative'>
                     {' '}
                     <p className='absolute font-semibold -right-10 -top-2 text-slate-600'>
@@ -76,7 +76,7 @@ const Sentiment = () => {
               </div>
               <div className='flex items-center justify-start gap-3 mb-2 text-base'>
                 <p className='font-semibold text-slate-500'>Hold</p>
-                <div class='rounded-full h-2.5 w-[60%] '>
+                <div className='rounded-full h-2.5 w-[60%] '>
                   <div className='bg-slate-400 h-2.5 rounded-md w-[8%] relative'>
                     <p className='absolute font-semibold -right-10 -top-2 text-slate-600'>
                       8%
@@ -86,7 +86,7 @@ const Sentiment = () => {
               </div>
               <div className='flex items-center justify-start gap-3 mb-2 text-base'>
                 <p className='font-semibold text-slate-500'>Sell</p>
-                <div class='rounded-full h-2.5 w-[60%] '>
+                <div className='rounded-full h-2.5 w-[60%] '>
                   <div className='bg-red-500 h-2.5 rounded-md w-[16%] relative'>
                     <p className='absolute font-semibold -right-10 -top-2 text-slate-600'>
                       16%

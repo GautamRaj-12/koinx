@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, memo } from 'react';
 import BitCoinInfo from '../BitcoinInfo/BitcoinInfo';
+import GetStarted from '../GetStarted/GetStarted';
 
-const Chart = ({ coinPrice }) => {
+const Chart = ({ coinPrice, coinInfo }) => {
   const containerRef = useRef();
 
   useEffect(() => {
@@ -36,23 +37,33 @@ const Chart = ({ coinPrice }) => {
   }, []);
 
   return (
-    <section className='p-4 bg-white rounded-sm md:w-[60%] mx-[5%] mt-4'>
-      <div>
-        <BitCoinInfo coinPrice={coinPrice} />
+    <>
+      <div className='w-[90%] mx-auto mt-4 text-sm'>
+        <span className='font-semibold text-slate-500'>Cryptocurrencies</span>{' '}
+        <i className='fa-solid fa-chevron-right'></i>
+        <i className='fa-solid fa-chevron-right'></i> Bitcoin
       </div>
-      <div className='tradingview-widget-container' ref={containerRef}>
-        <div className='tradingview-widget-container__widget'></div>
-        <div className='tradingview-widget-copyright'>
-          <a
-            href='https://www.tradingview.com/'
-            rel='noopener nofollow'
-            target='_blank'
-          >
-            <span className='blue-text'>Track all markets on TradingView</span>
-          </a>
+
+      <section className='p-4 bg-white rounded-sm md:w-[60%] mx-[5%] mt-4'>
+        <div>
+          <BitCoinInfo coinPrice={coinPrice} coinInfo={coinInfo} />
         </div>
-      </div>
-    </section>
+        <div className='tradingview-widget-container' ref={containerRef}>
+          <div className='tradingview-widget-container__widget'></div>
+          <div className='tradingview-widget-copyright'>
+            <a
+              href='https://www.tradingview.com/'
+              rel='noopener nofollow'
+              target='_blank'
+            >
+              <span className='blue-text'>
+                Track all markets on TradingView
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 
