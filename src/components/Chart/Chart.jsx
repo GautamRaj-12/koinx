@@ -12,7 +12,7 @@ const Chart = ({ coinPrice }) => {
     script.async = true;
     script.innerHTML = `
         {
-          "width": "700",
+          "width": "100%",
           "height": "500",
           "symbol": "BITSTAMP:BTCUSD",
           "interval": "D",
