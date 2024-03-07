@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, memo } from 'react';
 import BitCoinInfo from '../BitcoinInfo/BitcoinInfo';
 import GetStarted from '../GetStarted/GetStarted';
+import Trending from '../Trending/Trending';
 
-const Chart = ({ coinPrice, coinInfo }) => {
+const Chart = ({ coinPrice, coinInfo, trendingCoin }) => {
   const containerRef = useRef();
 
   useEffect(() => {
@@ -43,26 +44,31 @@ const Chart = ({ coinPrice, coinInfo }) => {
         <i className='fa-solid fa-chevron-right'></i>
         <i className='fa-solid fa-chevron-right'></i> Bitcoin
       </div>
-
-      <section className='p-4 bg-white rounded-sm md:w-[60%] mx-[5%] mt-4'>
-        <div>
-          <BitCoinInfo coinPrice={coinPrice} coinInfo={coinInfo} />
-        </div>
-        <div className='tradingview-widget-container' ref={containerRef}>
-          <div className='tradingview-widget-container__widget'></div>
-          <div className='tradingview-widget-copyright'>
-            <a
-              href='https://www.tradingview.com/'
-              rel='noopener nofollow'
-              target='_blank'
-            >
-              <span className='blue-text'>
-                Track all markets on TradingView
-              </span>
-            </a>
+      <div className='flex'>
+        <section className='p-4 bg-white rounded-sm md:basis-[60%] basis-[100%] mx-[5%] mt-4'>
+          <div>
+            <BitCoinInfo coinPrice={coinPrice} coinInfo={coinInfo} />
           </div>
+          <div className='tradingview-widget-container' ref={containerRef}>
+            <div className='tradingview-widget-container__widget'></div>
+            <div className='tradingview-widget-copyright'>
+              <a
+                href='https://www.tradingview.com/'
+                rel='noopener nofollow'
+                target='_blank'
+              >
+                <span className='blue-text'>
+                  Track all markets on TradingView
+                </span>
+              </a>
+            </div>
+          </div>
+        </section>
+        <div className='basis-[28%] md:block hidden'>
+          <GetStarted />
+          <Trending trendingCoin={trendingCoin} />
         </div>
-      </section>
+      </div>
     </>
   );
 };

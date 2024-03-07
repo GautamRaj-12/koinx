@@ -74,15 +74,22 @@ function App() {
   return (
     <>
       <Navbar />
-      <Chart coinPrice={coinPrice} coinInfo={coinInfo} />
+      <Chart
+        coinPrice={coinPrice}
+        coinInfo={coinInfo}
+        trendingCoin={trendingCoin}
+      />
       <Details />
       <Sentiment />
       <AboutBitcoin />
       <Tokenomics />
       <Team />
       <YouMayLike allTrendingCoin={allTrendingCoin} />
-      <GetStarted />
-      <Trending trendingCoin={trendingCoin} />
+
+      <div className='block md:hidden'>
+        <GetStarted />
+        <Trending trendingCoin={trendingCoin} />
+      </div>
     </>
   );
 }
