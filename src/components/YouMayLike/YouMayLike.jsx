@@ -35,7 +35,15 @@ const YouMayLike = ({ allTrendingCoin }) => {
                 <div className='flex items-center gap-2'>
                   <img src={coin.thumb} alt='' className='w-6 h-6' />
                   <p className='font-semibold'>{coin.symbol}</p>
-                  <p className='font-semibold'>{coin.usd.toFixed(2)}</p>
+                  {coin.usd > 0 ? (
+                    <p className='font-semibold text-green-500 bg-green-200 px-1'>
+                      {coin.usd.toFixed(2)}
+                    </p>
+                  ) : (
+                    <p className='font-semibold text-red-500 bg-red-200 px-1'>
+                      {coin.usd.toFixed(2)}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <p className='text-xl font-semibold'>{coin.price}</p>
@@ -72,7 +80,15 @@ const YouMayLike = ({ allTrendingCoin }) => {
                 <div className='flex items-center gap-2'>
                   <img src={coin.thumb} alt='' className='w-6 h-6' />
                   <p className='font-semibold'>{coin.symbol}</p>
-                  <p className='font-semibold'>{coin.usd.toFixed(2)}</p>
+                  {coin.usd > 0 ? (
+                    <p className='font-semibold text-green-500 bg-green-200 px-1'>
+                      {coin.usd.toFixed(2)}
+                    </p>
+                  ) : (
+                    <p className='font-semibold text-red-500 bg-red-200 px-1'>
+                      {coin.usd.toFixed(2)}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <p className='text-xl font-semibold'>{coin.price}</p>
